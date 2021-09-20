@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import { Quiz } from '../controllers/context'
+import Sidebar from './Sidebar';
 
 export default function EditQuizScreen() {
 
@@ -7,6 +8,7 @@ export default function EditQuizScreen() {
 
     return (
         <div className="Menu">
+            <Sidebar />
             <h2>Edit Quiz</h2>
             <button className="btn" onClick={() => {
                 SetState("start");

@@ -1,15 +1,24 @@
-import React from 'react'
 import Data from '../data/data.json'
+import React, {useContext} from 'react';
+import { Quiz, QuizId } from '../controllers/context'
+import QuizDetails from './QuizDetails';
+import { Component } from 'react';
 
-export default function Sidebar() {
+class Sidebar extends Component {
+
+    render(){
     return (
         <div className="sidebar">
             <h1 className="title">QuizMe</h1>
             <ul>
                 {Data.map((quiz) => {
-                    return <li className="quiz__item">{quiz.title}</li>
+                    return <li onClick={()=>this.props.handler(quiz)} className="quiz__item">{quiz.title}</li>
                 })}
-            </ul>
+                
+            </ul>  
         </div>
     )
+        
 }
+}
+export default Sidebar;
