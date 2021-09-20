@@ -1,8 +1,8 @@
 import './App.css';
 import React, { useState, useContext } from "react";
-import StartScreen from './components/Start';
-import QuizScreen from './components/QuizScreen'
-import EndScreen from './components/End'
+import StartScreen from './components/MainMenu';
+import CreateQuizScreen from './components/CreateQuizScreen'
+import EditQuizScreen from './components/EditQuizScreen'
 import { Quiz } from './controllers/context'
 
 function App() {
@@ -12,8 +12,8 @@ function App() {
       <h1>Quizme.com</h1>
       <Quiz.Provider value={{ CurrentState, SetState }}>
         {CurrentState === "start" && <StartScreen />}
-        {CurrentState === "quiz" && <QuizScreen />}
-        {CurrentState === "end" && <EndScreen />}
+        {CurrentState === "create" && <CreateQuizScreen />}
+        {CurrentState === "edit" && <EditQuizScreen />}
       </Quiz.Provider>
     </div>
   );

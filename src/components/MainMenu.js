@@ -1,17 +1,17 @@
 import React, { useContext } from 'react';
 import { Quiz } from '../controllers/context'
 
-export default function QuizScreen() {
+export default function MainMenu() {
 
     const { CurrentState, SetState } = useContext(Quiz);
-
     return (
         <div>
-            <h2>Quiz</h2>
             <button onClick={() => {
-                SetState("end");
-            }}>Exit Quiz</button>
+                SetState("create");
+            }}>Create Quiz</button><br></br><br></br>
+            <button onClick={() => {
+                SetState("edit");
+            }}>Edit Quiz</button>
         </div>
-
     );
 }
