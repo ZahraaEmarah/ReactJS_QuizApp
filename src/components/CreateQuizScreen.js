@@ -6,13 +6,13 @@ export default function CreateQuizScreen() {
     const { CurrentState, SetState } = useContext(Quiz);
 
     return (
-        <div>
+        <div className="Menu">
             <h2>Create New Quiz</h2>
-            <button onClick={() => {
+            <button className="btn" onClick={() => {
                 SetState("start");
             }}>Create</button>
 
-            <button onClick={() => {
+            <button className="btn" onClick={() => {
                 SetState("start");
             }}>Discard</button>
         </div>
