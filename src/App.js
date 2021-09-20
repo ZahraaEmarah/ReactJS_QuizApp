@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState, useContext } from "react";
+import StartScreen from './components/Start';
+import QuizScreen from './components/QuizScreen'
+import EndScreen from './components/End'
+import { Quiz } from './controllers/context'
 
 function App() {
+  const [CurrentState, SetState] = useState("start"); //initial screen is the start screen
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Quizme.com</h1>
+      <Quiz.Provider value={{ CurrentState, SetState }}>
+        {CurrentState === "start" && <StartScreen />}
+        {CurrentState === "quiz" && <QuizScreen />}
+        {CurrentState === "end" && <EndScreen />}
+      </Quiz.Provider>
     </div>
   );
 }
